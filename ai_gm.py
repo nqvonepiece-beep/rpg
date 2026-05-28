@@ -32,9 +32,10 @@ JSON bắt buộc có dạng:
 """
 
 
-def setup_gemini():
+def setup_gemini(api_key=None):
     """Khởi tạo Gemini model"""
-    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        api_key = os.getenv("GEMINI_API_KEY")
 
     if not api_key:
         raise ValueError("Missing GEMINI_API_KEY environment variable")
